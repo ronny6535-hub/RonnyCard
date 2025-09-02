@@ -1,0 +1,41 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:sheth;Ronny;; ;
+FN: Ronny sheth
+ORG:Ronny's Photography & Video 
+COMPANY:Ronny's Photography & Video 
+TITLE:Owner
+
+ADR;CHARSET=UTF-8;TYPE=WORK:;;Gilles Plains ;Adelaide;SA;5086;Australia
+TEL;TYPE=Work,pref:+61430206166
+TEL;CELL;TYPE=Mobile,VOICE:
+TEL;TYPE=WORK,VOICE:
+
+TEL;TYPE=Work,Fax:
+TEL;TYPE=Home,VOICE:
+TEL;TYPE=sms:+61430206166
+URL;TYPE=Messenger:
+TEL;TYPE=SIGNAL:
+EMAIL;TYPE=Email:info@ronnysphotography.com
+URL;TYPE=Digital Business Card:card.ronnysphotography.com
+
+
+
+URL;TYPE=Location:
+KEY:OPENPGP4FPR:
+UID:SMART vCARD-100197656
+URL;TYPE=Website:
+
+URL;TYPE=Calendar:
+URL;TYPE=WhatsApp:wa.me/61430206166
+URL;TYPE=WeChat:
+
+URL;TYPE=Tumblr:https://www.tumblr.com/ronnysphotography
+URL;TYPE=Youtube:https://youtube.com/@ronnysphotographyvideo7719?si=o5NGIp2BxEauWvYc
+URL;TYPE=Instagram:https://www.instagram.com/ronnys_photography_video/
+URL;TYPE=Facebook:https://www.facebook.com/ronnysphotography8/
+
+PHOTO;ENCODING=b:iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAAAAACPAi4CAAABbElEQVR42u3VQUsCQRgG4H7Lu8NK4uIiFEFEUgQJkRh1kIJAkCLoEChIIGyXukgILnUJOkhGEChKUSRGgZEoiIuCKPNf2m0ZKLvMGN7mPcws77c8LN9lp+g/MyUBCUhAAhKYHPAGJ4pvfifXY13taNlHtKWY2eEDWGYrbmUQ1izyAdeNxmctv0/gazhNBlg4L1ZLubg/zQcU3acCkLCvoY5w3236XSGARhB0FgDcUBYxIAnNPh+B8phAArp9toDMmEAYG84Vgv4yFnAHXDp3icBz3BQFuk8pD6JudRsAyHZ+yAuwkOSAummn/ADmsmLAdP1H27/aBLDW5gMKlmU9KDj9PahuARGBJR7AO7q4Q6DMDzS9iI+M2grO+AFqQKmMzDQYAkBvBqt/vsAUAOgFvt9vDdhoD2pTBKArCFiUGlrMLL9/PJshwKBCwD2QsAGwqCdUDKBRkFfaye4GNVXV19N1+WORgAQkIIFJA18KwypO+bFpPgAAAABJRU5ErkJggg==
+NOTE;CHARSET=UTF-8:Ronny’s Photography & Video – Capturing your special moments with passion, creativity, and professional expertise. Events, portraits, landscapes, and custom photo & video services AUSTRALIA wide.
+
+END:VCARD
