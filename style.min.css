@@ -1,3 +1,4 @@
+/* ----------------- BASE / ORIGINAL ----------------- */
 body {
   margin: 0 auto;
   width: 100%;
@@ -30,10 +31,32 @@ body {
   cursor: pointer;
   line-height: 0;
 }
+
+/* ---------- ICON + SVG BOX (fixed size) ---------- */
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  /* changed: make a fixed, consistent icon box so SVGs cannot blow up the button size */
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
 }
+
+/* make sure SVGs fit the icon container */
+.icon svg,
+.actionBtn a svg,
+.actionBtn button svg,
+#vcard svg,
+#topActions a svg {
+  width: 22px;
+  height: 22px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* ---------- MODALS / VIEWS ---------- */
 #modalView,
 #copyView,
 #qrView,
@@ -82,6 +105,8 @@ body {
   background: #fff;
   border-radius: 0.5rem;
 }
+
+/* ---------- HEADER / LOGO ---------- */
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,6 +161,8 @@ header {
 main {
   padding: 1rem;
 }
+
+/* ---------- PROFILE ---------- */
 #profile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -201,13 +228,20 @@ main {
   white-space: pre-line;
   line-height: 1.5;
   /* margin: 1rem; */
-        margin: -2rem 1rem 1rem 1rem;
+  margin: -2rem 1rem 1rem 1rem;
 }
 .textC {
   font-size: 1rem;
   margin: 2rem 1rem;
-        margin: -2rem 1rem 1rem 1rem;
+  margin: -2rem 1rem 1rem 1rem;
 }
+
+/* ----------------- ACTIONS (FIXED) ----------------- */
+/* Replaced previous .actionsC/.actionBtn rules to prevent circular/stretching buttons
+   - Make action containers flexible
+   - Make anchors inline-flex with proper padding, min-height and rounded corners
+   - Prevent svg/icons from growing the container */
+
 .actions {
   margin-top: 2rem;
   display: -webkit-box;
@@ -218,48 +252,54 @@ main {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  gap: 0.5rem;
 }
+
+/* Instead of forcing each action column to 33.33% which causes odd shapes,
+   allow them to size naturally but keep a consistent min width for layout */
 .actionsC {
-  width: 33.33%;
-}
-.actionBtn {
-  padding: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  /* changed from width: 33.33% to flexible sizing */
+  display: inline-flex;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  min-width: 96px; /* ensures a consistent baseline width on small screens */
 }
-.actionBtn a {
-  border-radius: 100%;
-  padding: 0.75rem;
-  line-height: 0;
+
+/* actionBtn container */
+.actionBtn {
+  padding: 0;
+  display: flex;
+  flex-direction: row;         /* icons + label side by side */
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
 }
-.actionBtn p {
-  margin: 0.5rem 0 0;
-  font-size: 0.875rem;
-}
-.secondary {
-  margin-top: 1.25rem;
-}
-.secBtn {
-  padding: 1rem;
-}
-a {
+
+/* anchor/button within action: use inline-flex (NOT circular by default) */
+.actionBtn a,
+.actionBtn button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;       /* pill-like buttons, not perfect circles */
+  min-height: 44px;          /* touch-friendly */
+  box-sizing: border-box;
   text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  color: #fff !important;
+  background: #32338b;       /* defaults; inline style attributes still override */
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;            /* avoid line-height:0 which hides text baseline */
 }
+
+/* If you want the large CTA (#vcard) to remain wide, keep its rule */
 #cta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -269,6 +309,8 @@ a {
   justify-content: center;
   width: 90%;
 }
+
+/* vcard kept as large pill */
 #vcard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,11 +320,10 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 5rem;
-  /* margin-top: 1.5rem; */
   margin-bottom: 1.5rem;
   padding: 0.75rem 1.5rem;
   cursor: pointer;
-  line-height: 0;
+  line-height: 1;
 }
 #vcard .icon {
   margin-right: 0.5rem;
@@ -290,8 +331,35 @@ a {
 #vcard p {
   margin: 0;
 }
+
+/* label under icons if you intentionally want single-column layout (optional)
+   but prefer to keep icons + label inline. If label must be below, use .vertical class */
+.actionBtn p,
+.actionBtn .action-label {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: inherit;
+  display: inline-block;
+}
+
+/* Secondary / compact actions */
+.secondary {
+  margin-top: 1.25rem;
+}
+.secBtn {
+  padding: 0;
+}
+
+/* ---------- MISC (retain existing rules) ---------- */
+a {
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .attachments {
-  /* margin-top: 1.5rem; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,7 +427,6 @@ video {
   width: 100%;
 }
 .controls {
-  /* padding: 2rem 1rem; */
   font-size: 0.875rem;
   text-align: center;
   width: 100%;
@@ -445,31 +512,15 @@ footer a {
   text-decoration: underline;
   color: inherit;
 }
-
-
 .pronouns{display:block;font-size:.9rem;opacity:.8;font-weight:normal;margin:0 0 .5rem}
-
 .bizaddr {
   font-size: 0.8rem;
   opacity: 0.6;
   margin-top: 0px !important;
 }
 
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 2rem 3rem;
-  padding: 4rem 0rem;
-  box-sizing: border-box;
-  padding-bottom: 0;
-  padding-bottom: 0
-}
-
-
- .headerImgC {
+/* removed duplicate header rules and consolidated above - keep consistent */
+.headerImgC {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
@@ -496,4 +547,13 @@ header {
   justify-self: center;
 }
 
-
+/* ---------- RESPONSIVE TWEAKS ---------- */
+@media (max-width: 520px) {
+  .actionBtn a, .actionBtn button {
+    padding: 0.5rem 0.7rem;
+    min-height: 42px;
+  }
+  .actionsC {
+    min-width: 82px;
+  }
+}
